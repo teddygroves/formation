@@ -1,4 +1,4 @@
-#+TITLE: Bayesian regression models of biochemical thermodynamics data
+#+TITLE: Bayesian regression models of biochemical thermodynamics
 
 This repository contains data and code for fitting the data from Du et al
 (2019) using a structured Bayesian regression model.
