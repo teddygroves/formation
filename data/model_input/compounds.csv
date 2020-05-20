@@ -1,0 +1,27 @@
+,compound_id,charge,name,dgf_obs,compound_id_stan
+3,CHB_15377,0.0,H2O,-237.14,4
+6,CHB_16761,-4.0,ADP,,12
+7,CHB_15422,-5.0,ATP,,5
+11,CHB_18361,-4.0,diphosphate,-1919.86,20
+12,CHB_15346,-5.0,CoA,,1
+13,CHB_16027,-3.0,AMP,,6
+14,CHB_15351,-5.0,acetyl-CoA,,2
+15,CHB_30089,-1.0,acetate,-369.32167999999996,22
+16,CHB_16474,-5.0,NADPH,,10
+19,CHB_18009,-4.0,NADP,,17
+27,CHB_16810,-2.0,2-oxoglutarate,-793.41,13
+37,CHB_40595,-6.0,"D-fructose 1,6-bisphosphate",,23
+50,CHB_26078,-3.0,orthophospate,-1025.491,21
+59,CHB_15361,-1.0,pyruvate,-472.27,3
+60,CHB_18021,-3.0,phosphoenolpyruvate,-1263.65,18
+87,CHB_4170,-4.0,D-glucose 6-phosphate,,25
+91,CHB_61553,-4.0,D-fructose 6-phosphate,,26
+174,CHB_4167,-2.0,D-glucose,,24
+184,CHB_17202,-4.0,IMP,,14
+206,CHB_16335,-1.0,adenosine,,8
+302,CHB_16087,-3.0,isocitrate,-1156.04,7
+358,CHB_17677,-5.0,CTP,,16
+400,CHB_17596,-2.0,inosine,,15
+455,CHB_16526,0.0,CO2,-385.974,11
+538,CHB_18132,-1.0,O-phosphocholine,,19
+552,CHB_16436,-2.0,CDPcholine,,9

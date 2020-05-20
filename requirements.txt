@@ -1,0 +1,4 @@
+cmdstanpy
+numpy
+pandas
+xlrd

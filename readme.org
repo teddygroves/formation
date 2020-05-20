@@ -1,0 +1,20 @@
+#+TITLE: A Bayesian regression model for analysing biochemical thermodynamics
+
+This repository contains data and code for fitting the data from Du et al
+(2019) using a structured Bayesian regression model.
+
+* How to run the model
+
+Working in a python 3 environment with ~make~ and a C++ toolchain available
+(this is required in order to use [[https://cmdstanpy.readthedocs.io/en/latest/getting_started.html][cmdstanpy]]), run the following command-line
+commands:
+
+#+begin_src bash
+pip install requirements.txt
+install_cmdstan  # if you haven't already done this
+make
+#+end_src
+
+* References
+- Du, B. (). Temperature-Dependent Estimation of Gibbs Energies Using an
+  Updated Group-Contribution Method. , (), 12.
