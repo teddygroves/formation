@@ -96,3 +96,8 @@ model {
   target += normal_lpdf(pka_obs | pka[pka_obs_ix], sigma_pka);
   target += normal_lpdf(pkmg_obs | pkmg[pkmg_obs_ix], sigma_pkmg);
 }
+generated quantities {
+  vector[N_measurement_kpr] kpr_rep;
+  for (n in 1:N_measurement_kpr)
+    kpr_rep[n] = exp(normal_rng(dgr_hat[n], sigma_dgr) / -RT[n]);
+}
