@@ -3,7 +3,7 @@
 This repository contains data and code for fitting the data from Du et al
 (2019) using a structured Bayesian regression model.
 
-* How to run the model
+* How to run the model, analyse the results and put the analysis in a paper
 
 Working in a python 3 environment with ~make~ and a C++ toolchain available
 (this is required in order to use [[https://cmdstanpy.readthedocs.io/en/latest/getting_started.html][cmdstanpy]]), run the following command-line
@@ -12,7 +12,7 @@ commands:
 #+begin_src bash
 pip install requirements.txt
 install_cmdstan  # if you haven't already done this
-make
+make paper
 #+end_src
 
 * Paper
