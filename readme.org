@@ -15,6 +15,8 @@ install_cmdstan  # if you haven't already done this
 make
 #+end_src
 
+* Paper
+I got inspiration for the pdf-writing setup from [[https://keleshev.com/my-book-writing-setup/][here]].
 * References
 - Du, B. (). Temperature-Dependent Estimation of Gibbs Energies Using an
   Updated Group-Contribution Method. , (), 12.
