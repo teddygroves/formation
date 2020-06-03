@@ -69,19 +69,19 @@ transformed parameters {
   vector[N_pka] pka = ordered_ragged_array(first_pka, n_pka_cpd, pka_diffs);
   vector[N_pkmg] pkmg = ordered_ragged_array(first_pkmg, n_pkmg_cpd, pkmg_diffs);
   vector[N_compound] dgf = prior_loc_dgf + dgf_z .* sigma_dgf[prior_regime_dgf];
-  vector[N_measurement_kpr] dgr_hat;
+  vector[N_measurement_kpr] dgr_prime;
   for (m in 1:N_measurement_kpr) {
     int first = fst_stoic[rxn[m]];
     int last = first + n_cpd[rxn[m]] - 1;
-    dgr_hat[m] = get_dgr_prime(stoic_coef[first:last],
-                               stoic_cpd[first:last],
-                               n_ms, fst_ms,
-                               n_pka, fst_pka,
-                               n_pkmg, fst_pkmg,
-                               nH,
-                               charge,
-                               I[m], temperature[m], pH[m], pMg[m], R,
-                               pka, pkmg, dgf);
+    dgr_prime[m] = get_dgr_prime(stoic_coef[first:last],
+                                 stoic_cpd[first:last],
+                                 n_ms, fst_ms,
+                                 n_pka, fst_pka,
+                                 n_pkmg, fst_pkmg,
+                                 nH,
+                                 charge,
+                                 I[m], temperature[m], pH[m], pMg[m], R,
+                                 pka, pkmg, dgf);
   }
 }
 model {
@@ -89,15 +89,18 @@ model {
   target += std_normal_lpdf(dgf_z|);
   target += normal_lpdf(first_pka | 7, 3);
   target += normal_lpdf(first_pkmg | 5, 2);
-  target += normal_lpdf(pka_diffs | 3, 1);
-  target += normal_lpdf(pkmg_diffs | 3, 1);
+  target += lognormal_lpdf(pka_diffs | log(3), 1);
+  target += lognormal_lpdf(pkmg_diffs | log(3), 1);
   // likelihood
-  target += normal_lpdf(dgr_obs | dgr_hat, sigma_dgr);
+  target += normal_lpdf(dgr_obs | dgr_prime, sigma_dgr);
   target += normal_lpdf(pka_obs | pka[pka_obs_ix], sigma_pka);
   target += normal_lpdf(pkmg_obs | pkmg[pkmg_obs_ix], sigma_pkmg);
 }
 generated quantities {
   vector[N_measurement_kpr] kpr_rep;
-  for (n in 1:N_measurement_kpr)
-    kpr_rep[n] = exp(normal_rng(dgr_hat[n], sigma_dgr) / -RT[n]);
+  vector[N_measurement_kpr] log_lik_dgr;
+  for (n in 1:N_measurement_kpr){
+    kpr_rep[n] = exp(normal_rng(dgr_prime[n], sigma_dgr) / -RT[n]);
+    log_lik_dgr[n] = normal_lpdf(dgr_obs[n] | dgr_prime[n], sigma_dgr);
+  }
 }
