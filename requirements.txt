@@ -1,4 +1,6 @@
+arviz
 cmdstanpy
+matplotlib
 numpy
 pandas
 xlrd
