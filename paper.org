@@ -193,29 +193,48 @@ In mathematical formulation our model is as follows:
 
 * Difference from existing approaches
 
-Existing approaches
-[REFER TO DU et al review paper]
+ Most recent approaches to estimation of biochemical formation and reaction
+energies use the following stepwise approach. First, the theory relating
+standard and condition-specific measurements set out above is used to transform
+gibbs free energy measurements to their theoretical values under standard
+conditions. Second, thermodynamic parameters are inferred from the transformed
+data using a statistical model. See cite:duEstimatingMetabolicEquilibrium2018
+for a review of recent implementations of this modelling approach.
 
-Main difference: pipeline vs single model
+The modelling approach outlined here is different from the stepwise approach
+because there is only one step - thermodynamic parameters are inferred from
+untransformed data using a statistical model that takes into account the
+thermodynamic theory.
 
-Pros:
+The stepwise approach has the advantage that the task inferring thermodyanic
+parameters from standard-condition data can be formulated as a relatively
+simple statistical modelling problem. [MORE ADVANTAGES OF STEPWISE APPROACH]
+
+On the other hand
+
+[
 - uncertainty properly propagated
 - easier to identify bad measurements and incorrect assumptions
 - better predictions?
+]
 
-Cons:
-- no group contribution so much lower coverage
-- slower to compute
+  
+** Advantages of Bayesian approach
+** Challenges
 
 * Results
 
-** Data
+** Simulation studies
+[TRY TO MAKE THE SIMPLEST POSSIBLE EXAMPLE SHOWING IMPROVEMENT VS COMPONENT
+CONTRIBUTION]
 
-** Model output
+** Application to real data
+*** Data
+*** Model output
 [[file:analysis/img/pred.png]]
 
 [[file:analysis/img/form.png]]
 
 [[file:analysis/img/pka.png]]
 
-** Comparison with component contribution
+*** Comparison with component contribution
