@@ -4,6 +4,6 @@
 .pytest_cache
 venv*
 data/model_output/*
-data/analysis/img/*
-!data/analysis/img/readme.org
+analysis/img/*
+!analysis/img/readme.org
 !data/model_output/samples/readme.org
